@@ -1,25 +1,30 @@
 //challenge one 
 
 function studentGradeGenerator() {
-    let mark = parseInt(prompt("Enter student marks (between 0 and 100): "));
-  
-    if (mark < 0 || mark > 100) {
-      alert("Invalid input! Please enter a mark between 0 and 100.");
-      return;
-    }
-  
-    if (mark > 79) {
-      alert(`Grade: A`);
-    } else if (mark >= 60 && mark <= 79) {
-      alert(`Grade: B`);
-    } else if (mark >= 49 && mark <= 59) {
-      alert(`Grade: C`);
-    } else if (mark >= 40 && mark <= 49) {
-      alert(`Grade: D`);
+  const readline = require('readline');
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question('Enter student marks (between 0 and 100): ', (answer) => {
+    let mark = parseInt(answer);
+    if (isNaN(mark) || mark < 0 || mark > 100) {
+      console.log('Invalid input. Please enter a number between 0 and 100.');
+      rl.close();
+    } else if (mark > 79) {
+      console.log(`The student gets an A grade.`);
+    } else if (mark >= 60) {
+      console.log(`The student gets a B grade.`);
+    } else if (mark >= 50) {
+      console.log(`The student gets a C grade.`);
+    } else if (mark >= 40) {
+      console.log(`The student gets a D grade.`);
     } else {
-      alert(`Grade: E`);
+      console.log(`The student gets an E grade.`);
     }
-  }
-  
-  studentGradeGenerator();
-  
+    rl.close();
+  });
+}
+
+studentGradeGenerator();
