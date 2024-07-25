@@ -6,9 +6,9 @@ function netSalaryCalculator() {
       return;
     }
     
-    let payee = 0;
-    let nhifDeductions = 0;
-    let nssfDeductions = 0;
+    let payee = 24000;
+    let nhifDeductions = 750;
+    let nssfDeductions = 7000;
     let grossSalary = 0;
     let netSalary = 0;
     
